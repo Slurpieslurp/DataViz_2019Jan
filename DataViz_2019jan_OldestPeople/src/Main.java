@@ -189,6 +189,7 @@ public class Main {
             timePassed += person.getReignLength();
         }
 
+        // Draw age lines
         for (int i = people.size() - 1; i >= 0; i--) {
             Person person = people.get(i);
             timePassed -= person.getReignLength();
@@ -222,7 +223,9 @@ public class Main {
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
             g.setStroke(new BasicStroke(LINE_WIDTH));
-            g.drawLine(x1, y1, x2, y2);
+            g.fillPolygon(new int[]{x1 + 1, x1 + 1, x2, x2},
+                    new int[]{y1 - LINE_WIDTH / 2, y1 + LINE_WIDTH / 2, y2 + LINE_WIDTH / 2, y2 - LINE_WIDTH / 2}, 4);
+            //g.drawLine(x1, y1, x2, y2);
             g.fillOval(x2 - DOT_SIZE / 2, y2 - DOT_SIZE / 2, DOT_SIZE, DOT_SIZE);
 
 
@@ -245,6 +248,7 @@ public class Main {
         }
         timePassed = 0;
 
+        // Draw names
         g.rotate(-Math.PI/2);
         g.setFont(new Font("Century Gothic", Font.BOLD, LARGE_FONT_SIZE));
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
@@ -272,8 +276,8 @@ public class Main {
         g.setTransform(orig);
         g.setStroke(new BasicStroke(3));
         g.setColor(TEXT_COLOR);
-        g.drawLine(LEFT_PADDING - 2, (int) (0.8 * TOP_PADDING), LEFT_PADDING - 2, graphBottom + 2); // Vertical
-        g.drawLine(LEFT_PADDING - 2, graphBottom + 2, width - RIGHT_PADDING, graphBottom + 2); // Horizontal
+        g.drawLine(LEFT_PADDING - 1, (int) (0.8 * TOP_PADDING), LEFT_PADDING - 1, graphBottom + 2); // Vertical
+        g.drawLine(LEFT_PADDING - 1, graphBottom + 2, width - RIGHT_PADDING, graphBottom + 2); // Horizontal
 
         // Draw horizontal axis title
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
