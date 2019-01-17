@@ -316,7 +316,7 @@ public class Main {
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
         g.setFont(new Font("Century Gothic", Font.BOLD, TITLE_FONT_SIZE));
-        String string = "Progression of the record for oldest person alive";
+        String string = "Progression of the record for world's oldest person alive";
         int stringWidth = g.getFontMetrics().stringWidth(string);
         g.drawString(string, LEFT_PADDING + (width - HORIZONTAL_PADDING) / 2 - stringWidth / 2, TITLE_FONT_SIZE);
         string = "(1955 - 2018)";
